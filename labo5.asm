@@ -5,17 +5,17 @@ org 100h
     string DB 'DANIEL ALEJANDRO OROZCO ORELLANA'
 
     section .text
-    xor AX, AX
-    xor SI, SI
-    xor BX, BX
-    XOR CX, CX
-    xor DX, DX
+        xor AX, AX
+        xor SI, SI
+        xor BX, BX
+        XOR CX, CX
+        xor DX, DX
 
-    MOV SI, 0
-    MOV DI, 0d
+        MOV SI, 0
+        MOV DI, 0d
 
-    MOV DH, 10 
-    MOV DL, 20 
+        MOV DH, 10 
+        MOV DL, 20 
 
     call mostrartexto
 
@@ -23,7 +23,7 @@ org 100h
         call mcursor
         MOV CL, [string+SI]
         CMP CL, 20h
-        JE NEXTLINE
+        JE senter
         call showchar
         INC SI
         INC DL
@@ -59,7 +59,7 @@ org 100h
     salir:
         int 20h
 
-    NEXTLINE:
+    senter:
         add DH, 5
         INC SI 
         MOV DL, 20 
